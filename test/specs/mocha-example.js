@@ -1,4 +1,4 @@
-describe('Description of test suite', () => {
+describe.skip('Description of test suite', () => {
     before(() => {
         console.log("runs once before the first test in this block");
     });
@@ -22,4 +22,3 @@ describe('Description of test suite', () => {
         console.log("Execute code: Individual test 2");
     });
 })
-
