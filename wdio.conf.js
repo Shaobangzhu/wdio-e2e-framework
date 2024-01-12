@@ -10,7 +10,8 @@ exports.config = {
     // Specify Test Files
     // ==================
     // Define which test specs should run. The pattern is relative to the directory
-    // of the configuration file being run.
+    // of the configuration file being run.1
+
     //
     // The specs are defined as an array of spec files (optionally using wildcards
     // that will be expanded). The test for each spec file will be run in a separate
@@ -21,7 +22,7 @@ exports.config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/async-example.spec.js'
+        './test/specs/**/locating-elements.spec.js'
     ],
     // Patterns to exclude.
     exclude: [
