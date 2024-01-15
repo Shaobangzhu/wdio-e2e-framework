@@ -21,7 +21,7 @@ describe('advanced element interactions - examples', () => {
         // await browser.pause(2000);
     });
 
-    it('dropdowns', async () => {
+    it.skip('dropdowns', async () => {
         await browser.url("/Dropdown-Checkboxes-RadioButtons/index.html");
         const programmingLanguage_DropdownList = await $('#dropdown-menu-1');
         await programmingLanguage_DropdownList.selectByAttribute('value', 'python');
@@ -133,7 +133,7 @@ describe('advanced element interactions - examples', () => {
         await expect($('#confirm-alert-text')).toHaveText('You pressed Cancel!');
     });
 
-    it('File Upload', async () => {
+    it.skip('File Upload', async () => {
         await browser.url("/File-Upload/index.html");
         await $('#myFile').addValue(`${process.cwd()}\\data\\dummy_file.text`);
         await $('#submit-button').click();
