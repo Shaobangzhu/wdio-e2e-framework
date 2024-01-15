@@ -78,7 +78,7 @@ describe('advanced element interactions - examples', () => {
         await browser.pause(3000);
     });
 
-    it.only('handling windows', async () => {
+    it('handling windows', async () => {
         await browser.url("https://webdriveruniversity.com/");
         await browser.newWindow("https://automationteststore.com/");
 
@@ -102,6 +102,16 @@ describe('advanced element interactions - examples', () => {
 
         await browser.switchWindow('webdriveruniversity');
         console.log(await browser.getTitle());
+        await browser.pause(3000);
+    });
+
+    it.only('IFrames', async() => {
+        await browser.url("/IFrame/index.html");
+        const iframe = await $('#frame');
+        await browser.switchToFrame(iframe);
+        await $("//a[text()='Our Products']").click();
+        await browser.pause(3000);
+        await browser.switchToParentFrame();
         await browser.pause(3000);
     });
 });
