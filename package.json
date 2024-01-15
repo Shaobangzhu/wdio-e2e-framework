@@ -19,5 +19,8 @@
     "@wdio/mocha-framework": "^8.27.0",
     "@wdio/spec-reporter": "^8.27.0",
     "chromedriver": "^120.0.1"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.25.0"
   }
 }
