@@ -37,6 +37,22 @@ describe('advanced element interactions - examples', () => {
         await fontendLanguage_DropdownList.selectByVisibleText('CSS');
         await expect(tech_DropdownList).toHaveValueContaining('CSS', {ignoreCase: true});
         // await browser.pause(2000);
+    });
 
+    it.only('state commands', async() => {
+        await browser.url("/Dropdown-Checkboxes-RadioButtons/index.html");
+
+        const lettuceRadioButton = await $('[value = "lettuce"]');
+        const lettuceRadioButton_isDisplayed = await lettuceRadioButton.isDisplayed();
+        await expect(lettuceRadioButton_isDisplayed).toEqual(true);
+        await expect(lettuceRadioButton).toBeEnabled();
+
+        const lettuceRadioButton_isClickable = await lettuceRadioButton.isClickable();
+        await expect(lettuceRadioButton_isClickable).toEqual(true);
+
+        const cabbageRadioButton = await $('[value = "cabbage"]');
+        const cabbageRadioButton_isEnabled = await cabbageRadioButton.isEnabled();
+        await expect(cabbageRadioButton_isEnabled).toEqual(false);
+        await expect(cabbageRadioButton).toBeDisabled();
     });
 });
