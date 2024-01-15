@@ -132,4 +132,10 @@ describe('advanced element interactions - examples', () => {
         await browser.dismissAlert();
         await expect($('#confirm-alert-text')).toHaveText('You pressed Cancel!');
     });
+
+    it('File Upload', async () => {
+        await browser.url("/File-Upload/index.html");
+        await $('#myFile').addValue(`${process.cwd()}\\data\\dummy_file.text`);
+        await $('#submit-button').click();
+    });
 });
