@@ -105,7 +105,7 @@ describe('advanced element interactions - examples', () => {
         await browser.pause(3000);
     });
 
-    it.only('IFrames', async() => {
+    it('IFrames', async() => {
         await browser.url("/IFrame/index.html");
         const iframe = await $('#frame');
         await browser.switchToFrame(iframe);
@@ -113,5 +113,23 @@ describe('advanced element interactions - examples', () => {
         await browser.pause(3000);
         await browser.switchToParentFrame();
         await browser.pause(3000);
+    });
+
+    it('Alerts', async () => {
+        await browser.url("/Popup-Alerts/index.html");
+        await $('#button1').click();
+        await browser.acceptAlert();
+
+        await $('#button4').click();
+        const alertText = await browser.getAlertText();
+        await expect(alertText).toEqual('Press a button!');
+
+        await browser.acceptAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed OK!');
+        await browser.pause(3000);
+
+        await $('#button4').click();
+        await browser.dismissAlert();
+        await expect($('#confirm-alert-text')).toHaveText('You pressed Cancel!');
     });
 });
