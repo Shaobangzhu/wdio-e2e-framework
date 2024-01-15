@@ -138,4 +138,17 @@ describe('advanced element interactions - examples', () => {
         await $('#myFile').addValue(`${process.cwd()}\\data\\dummy_file.text`);
         await $('#submit-button').click();
     });
+
+    it('JS Execute', async () => {
+        await browser.url("/Hidden-Elements/index.html");
+        await browser.execute(() => {
+            return document.getElementById("not-displayed").setAttribute("id", "");
+        });
+
+        await browser.execute(() => {
+            return document.body.style.backgroundColor = "tomato";
+        })
+
+        await browser.pause(3000);
+    });
 });
