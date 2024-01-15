@@ -77,4 +77,31 @@ describe('advanced element interactions - examples', () => {
         await firstLink.click();
         await browser.pause(3000);
     });
+
+    it.only('handling windows', async () => {
+        await browser.url("https://webdriveruniversity.com/");
+        await browser.newWindow("https://automationteststore.com/");
+
+        let currentWindow_Title = await browser.getTitle();
+        console.log(`>>Current Window Title: ${currentWindow_Title}`);
+        await expect(browser).toHaveUrlContaining('automationteststore');
+        await browser.pause(3000);
+
+        await browser.switchWindow('webdriveruniversity.com');
+        let parentWindow_Title = await browser.getTitle();
+        console.log(`>>Parent Window Title: ${parentWindow_Title}`);
+        await expect(browser).toHaveUrlContaining('webdriveruniversity.com');
+        await browser.pause(3000);
+
+        await $('#contact-us').click();
+        await browser.switchWindow('automationteststore');
+        await browser.closeWindow();
+
+        await browser.switchWindow('contactus');
+        await browser.closeWindow();
+
+        await browser.switchWindow('webdriveruniversity');
+        console.log(await browser.getTitle());
+        await browser.pause(3000);
+    });
 });
