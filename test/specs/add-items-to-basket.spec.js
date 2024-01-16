@@ -1,6 +1,5 @@
 describe('add items to basket', () => {
     beforeEach( async () => {
-        await browser.maximizeWindow();
         await browser.url("https://automationteststore.com/");
     });
 

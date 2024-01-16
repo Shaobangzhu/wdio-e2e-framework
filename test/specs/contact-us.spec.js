@@ -2,7 +2,6 @@ import allureReporter from "@wdio/allure-reporter";
 
 describe('webdriveruniversity - contact us page', () => {
     beforeEach(async () => {
-        await browser.maximizeWindow();
         await browser.url("/Contact-Us/contactus.html");
         console.log(`>>Browser Object: + ${JSON.stringify(browser)}`);
     });
