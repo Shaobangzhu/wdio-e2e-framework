@@ -1,4 +1,5 @@
 import allureReporter from "@wdio/allure-reporter";
+import ContactUsPage from "../pageObject/webdriver-university/contact-us.page";
 
 describe('webdriveruniversity - contact us page', function() {
 
@@ -6,7 +7,7 @@ describe('webdriveruniversity - contact us page', function() {
     // this.retries(1);
 
     beforeEach(async () => {
-        await browser.url("/Contact-Us/contactus.html");
+        await ContactUsPage.open();
         console.log(`>>Browser Object: + ${JSON.stringify(browser)}`);
     });
 
