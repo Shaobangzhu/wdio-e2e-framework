@@ -25,7 +25,7 @@ exports.config = {
   // The path of the spec files will be resolved relative from the directory of
   // of the config file unless it's absolute.
   //
-  specs: ["./test/specs/**/add-items-to-basket.spec.js"],
+  specs: ["./test/specs/**/contact-us.spec.js"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
