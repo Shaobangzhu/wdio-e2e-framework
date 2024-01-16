@@ -10,7 +10,7 @@ describe('webdriveruniversity - contact us page', function() {
         console.log(`>>Browser Object: + ${JSON.stringify(browser)}`);
     });
 
-    it('valid submission - submit all information', async() => {
+    it('valid submission - submit all information', async function() {
         // Re-try an individual test case
         // this.retries(2);
         // Allure Customized Feature
