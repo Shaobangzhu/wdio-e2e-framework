@@ -1,6 +1,7 @@
 // wdio.conf.js
 const allure = require("allure-commandline");
 import fs from "fs";
+const commands = require('./utils/commands.js')
 
 exports.config = {
   //
@@ -209,8 +210,11 @@ exports.config = {
    * @param {string} commandName hook command name
    * @param {Array} args arguments that command would receive
    */
-  // beforeCommand: function (commandName, args) {
-  // },
+  beforeCommand: function (commandName, args) {
+    Object.keys(commands).forEach(key => {
+      browser.addCommand(key, commands[key]);
+    })
+  },
   /**
    * Hook that gets executed before the suite starts
    * @param {object} suite suite details

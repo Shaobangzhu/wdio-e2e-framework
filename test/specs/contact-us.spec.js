@@ -3,7 +3,7 @@ import allureReporter from "@wdio/allure-reporter";
 describe('webdriveruniversity - contact us page', function() {
 
     // If the test suite fail, it will retry the test ONCE.
-    this.retries(1);
+    // this.retries(1);
 
     beforeEach(async () => {
         await browser.url("/Contact-Us/contactus.html");
@@ -34,7 +34,8 @@ describe('webdriveruniversity - contact us page', function() {
         await lastName.setValue("Lu");
         await email.setValue("clu2024@outlook.com");
         await msg.setValue("Hello Webdriver.IO");
-        await submitBtn.click();
+        // await submitBtn.click();
+        await browser.waitThenClick(submitBtn);
 
         // Assert
         const successfulSubmissionHeader = $('#contact_reply > h1');
