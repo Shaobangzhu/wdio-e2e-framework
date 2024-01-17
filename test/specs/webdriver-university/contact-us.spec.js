@@ -12,7 +12,7 @@ describe('webdriveruniversity - contact us page', function() {
         console.log(`>>Browser Object: + ${JSON.stringify(browser)}`);
     });
 
-    it('valid submission - submit all information', async function() {
+    it.only('valid submission - submit all information', async function() {
         // Re-try an individual test case
         // this.retries(2);
 
@@ -21,7 +21,8 @@ describe('webdriveruniversity - contact us page', function() {
         allureReporter.addDescription("Validate contact us page by submitting all data.");
         allureReporter.addSeverity("critical");
 
-        ContactUsPage.submitForm("Andrew", "Lu", "clu2024@outlook.com", "Hello Webdriver.IO");
+        // ContactUsPage.submitForm("Andrew", "Lu", "clu2024@outlook.com", "Hello Webdriver.IO");
+        ContactUsPage.submitForm_UsingRandomData("Andrew", "Lu");
 
         await expect(contactUsPage.successfulSubmissionHeader).toHaveText('Thank You for your Message!');
     });
