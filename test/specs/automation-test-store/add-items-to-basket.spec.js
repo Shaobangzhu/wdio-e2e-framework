@@ -5,8 +5,7 @@ describe('add items to basket', () => {
     it("add specific 'skincare products' to basket & validate car total", async () => {
         await HomePage.open();
 
-        const skincareLinks = await $$("//a[contains(text(), 'Skincare')]");
-        await skincareLinks[1].click();
+        await HomePage.categoryMenuComponent.categoryMenuLink('Skincare')[1].click();
 
         const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
 
