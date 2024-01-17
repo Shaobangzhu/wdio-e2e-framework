@@ -1,4 +1,5 @@
 import HomePage from "../../pageObject/automation-test-store/home.page";
+import SkinCarePage from "../../pageObject/automation-test-store/skincare.page";
 
 describe('add items to basket', () => {
 
@@ -7,7 +8,7 @@ describe('add items to basket', () => {
 
         await HomePage.categoryMenuComponent.categoryMenuLink('Skincare')[1].click();
 
-        const skincareProducts_Header_Links = await $$('.fixed_wrapper .prdocutname');
+        const skincareProducts_Header_Links = await SkinCarePage.itemComponent.itemHeaderLinks;
 
         const itemPrices = [];
 
