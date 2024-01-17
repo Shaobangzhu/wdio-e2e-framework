@@ -1,5 +1,6 @@
 import allureReporter from "@wdio/allure-reporter";
 import ContactUsPage from "../pageObject/webdriver-university/contact-us.page";
+import contactUsPage from "../pageObject/webdriver-university/contact-us.page";
 
 describe('webdriveruniversity - contact us page', function() {
 
@@ -14,7 +15,7 @@ describe('webdriveruniversity - contact us page', function() {
     it('valid submission - submit all information', async function() {
         // Re-try an individual test case
         // this.retries(2);
-        
+
         // Allure Customized Feature
         allureReporter.addFeature("Contact us Page - valid Submission");
         allureReporter.addDescription("Validate contact us page by submitting all data.");
@@ -22,8 +23,7 @@ describe('webdriveruniversity - contact us page', function() {
 
         ContactUsPage.submitForm("Andrew", "Lu", "clu2024@outlook.com", "Hello Webdriver.IO");
 
-        const successfulSubmissionHeader = $('#contact_reply > h1');
-        await expect(successfulSubmissionHeader).toHaveText('Thank You for your Message!');
+        await expect(contactUsPage.successfulSubmissionHeader).toHaveText('Thank You for your Message!');
     });
 
     it('invalid submission - dont submit all information', async() => {
@@ -34,7 +34,11 @@ describe('webdriveruniversity - contact us page', function() {
        
         ContactUsPage.submitForm("Andrew", "Lu", "", "Hello Webdriver.IO");
 
-        const successfulSubmissionHeader = $('body');
-        await expect(successfulSubmissionHeader).toHaveTextContaining(['Error: all fields are required', 'Error: Invalid email address']);
+        await expect(contactUsPage.unsuccessfulSubmissionHeader).toHaveTextContaining(['Error: all fields are required', 'Error: Invalid email address']);
+    });
+
+    it('only type a first name', async () => {
+        ContactUsPage.submitForm("Chaoran", "", "", "");
+        await expect(contactUsPage.unsuccessfulSubmissionHeader).toHaveTextContaining(['Error: all fields are required', 'Error: Only type a first name']);
     });
 });
