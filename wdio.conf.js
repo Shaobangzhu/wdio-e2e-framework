@@ -65,8 +65,13 @@ exports.config = {
   //
   capabilities: [
     {
+      maxInstances: 2,
       browserName: "chrome",
     },
+    {
+      maxInstances: 2,
+      browserName: "firefox",
+    }
   ],
 
   //
@@ -116,7 +121,7 @@ exports.config = {
   // Services take over a specific job you don't want to take care of. They enhance
   // your test setup with almost no effort. Unlike plugins, they don't add new
   // commands. Instead, they hook themselves up into the test process.
-  // services: [],
+  // services: ['chromedriver'],
   //
   // Framework you want to run your specs with.
   // The following are supported: Mocha, Jasmine, and Cucumber
@@ -128,7 +133,7 @@ exports.config = {
 
   //
   // The number of times to retry the entire specfile when it fails as a whole
-  // specFileRetries: 1,
+  specFileRetries: 0,
   //
   // Delay in seconds between the spec file retry attempts
   // specFileRetriesDelay: 0,
