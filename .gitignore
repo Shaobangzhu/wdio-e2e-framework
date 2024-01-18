@@ -135,3 +135,6 @@ data/
 # allure reports
 allure-results/
 allure-report/
+
+# config
+config/
