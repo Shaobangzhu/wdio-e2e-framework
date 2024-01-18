@@ -31,6 +31,16 @@ exports.config = {
   exclude: [
     // 'path/to/excluded/files'
   ],
+  suites: {
+    smoke: [
+      'test/specs/automation-test-store/add-items-to-basket.spec.js',
+      'test/specs/webdirver-university/locating-elements.spec.js',
+      'test/specs/webdirver-university/contact-us.spec.js'
+    ],
+    automationteststore: [
+      'test/specs/automation-test-store/add-items-to-basket.spec.js'
+    ]
+  },
   //
   // ============
   // Capabilities
